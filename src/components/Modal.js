@@ -15,7 +15,7 @@ const CharacterModal = ({ data, onClose }) => (
         className="absolute top-0 right-0 w-12 h-12"
       />
       <h2 className="text-2xl font-bold mb-4 text-red-600">
-        Princess Information
+        Character Information
       </h2>
       <p className="text-lg text-green-700">
         Link: {data.sourceUrl}
