@@ -2,7 +2,7 @@
 
 import React from "react";
 
-const Modal = ({ character, onClose }) => (
+const CharacterModal = ({ data, onClose }) => (
   <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
     <div className="bg-white rounded-lg p-6 w-1/3 border-4 border-red-500 relative">
       <img
@@ -19,7 +19,7 @@ const Modal = ({ character, onClose }) => (
         Season Information
       </h2>
       <p className="text-lg text-green-700">
-        Season: {character.strTags || "Any Season!"}
+        Season: {data.allies || "Any Season!"}
       </p>
       <button
         className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
@@ -31,4 +31,4 @@ const Modal = ({ character, onClose }) => (
   </div>
 );
 
-export default Modal;
+export default CharacterModal;

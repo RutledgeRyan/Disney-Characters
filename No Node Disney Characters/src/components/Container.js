@@ -1,12 +1,10 @@
-/** @format */
-
 import React from "react";
 import Card from "./Card";
 
-const CharacterContainer = ({ character, onCardClick }) => (
+const CharacterContainer = ({ data, onCardClick }) => (
   <div className="flex flex-wrap justify-center">
-    {character.map((character) => (
-      <Card key={character._id} character={character} onClick={onCardClick} />
+    {data.map((character) => (
+      <Card key={character._id} data={character} onClick={onCardClick} />
     ))}
   </div>
 );

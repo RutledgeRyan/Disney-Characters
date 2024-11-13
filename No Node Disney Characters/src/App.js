@@ -4,9 +4,10 @@ import "./App.css";
 import Header from "./components/Header";
 import CharacterModal from "./components/Modal";
 import CharacterContainer from "./components/Container";
+//import Footer from "./components/Footer";
 
 const App = () => {
-  const [character, setCharacter] = useState([]);
+  const [name, setCharacter] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState(null); 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAnimated, setIsAnimated] = useState(false);
@@ -17,7 +18,7 @@ useEffect(() => {
   axios
     .get("https://api.disneyapi.dev/character")
     .then((response) => {
-      setCharacter(response.data.character);
+      setCharacter(response.data.data);
     })
     .catch((error) => {
       console.error("Error fetching the disney character data:", error);
@@ -42,17 +43,19 @@ const closeModal = () => {
 return (
   <div className="App">
     <Header isAnimated={isAnimated} />
-    <CharacterContainer character={character} onCardClick={handleCardClick} />
+    <CharacterContainer data={name} onCardClick={handleCardClick} />
     {selectedCharacter && (
       <div className="mt-6 p-4 bg-gray-100 rounded-lg">
-        <h2 className="text-2xl font-bold">{selectedCharacter.strDrink}</h2>
+        <h2 className="text-2xl font-bold">{selectedCharacter.name}</h2>
         <p className="text-lg">
-          Good ... {selectedCharacter.strTags || "Any Season!"}
+          Good ... {selectedCharacter.films || "Any Season!"}
         </p>
       </div>
     )}
     <audio ref={audioRef} src="/jingle.mp3" />
-    {isModalOpen && <CharacterModal character={selectedCharacter} onClose={closeModal} />}
+    {isModalOpen && <CharacterModal name={selectedCharacter} onClose={closeModal} />}
+
+    
   </div>
 );
 };
