@@ -53,7 +53,7 @@ return (
       </div>
     )}
     <audio ref={audioRef} src="/DisneySound.mp3" />
-    {isModalOpen && <CharacterModal name={selectedCharacter} onClose={closeModal} />}
+    {isModalOpen && <CharacterModal data={selectedCharacter} onClose={closeModal} />}
 
     
     <Footer
