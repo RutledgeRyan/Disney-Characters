@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+
 
 const CharacterModal = ({ data, onClose }) => (
   <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
@@ -15,10 +15,18 @@ const CharacterModal = ({ data, onClose }) => (
         className="absolute top-0 right-0 w-12 h-12"
       />
       <h2 className="text-2xl font-bold mb-4 text-red-600">
-        Character Information
+        Princess Information
       </h2>
       <p className="text-lg text-green-700">
-        Link: {data.sourceUrl}
+      Click for more Info on {" "}
+        <a 
+          href={data.sourceUrl} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="text-blue-500 underline"
+        >
+          {data.name}
+        </a>
       </p>
       <button
         className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
@@ -30,15 +38,6 @@ const CharacterModal = ({ data, onClose }) => (
   </div>
 );
 
-CharacterModal.propTypes = {
-  data: PropTypes.shape({
-    tvShows: PropTypes.string,
-  }),
-  onClose: PropTypes.func.isRequired,
-};
 
-CharacterModal.defaultProps = {
-  data: {},
-};
 
 export default CharacterModal;

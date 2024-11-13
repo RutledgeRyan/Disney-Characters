@@ -8,15 +8,15 @@ const Card = ({ data, onClick }) => (
     <img
       src={data.imageUrl}
       alt={data.name}
-      className="w-full h-40 object-cover rounded-t-lg"
+      className="w-full h-60 object-cover rounded-t-lg"
     />
     <h2 className="text-xl font-semibold mt-2">{data.name}</h2>
     <br/>
     <h4>Films</h4>
-    <p className="text-gray-600">{data.films}</p>
+    <p className="text-gray-500">{data.films}</p>
     <br/>
     <h4>TV Shows:</h4>
-    <p className="text-gray-600">{data.tvShows}</p>
+    <p className="text-gray-500">{data.tvShows}</p>
   </div>
 );
 
